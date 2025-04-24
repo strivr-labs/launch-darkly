@@ -1,6 +1,6 @@
 import Foundation
 
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS) || os(visionOS)
 import UIKit
 #elseif os(OSX)
 import AppKit
@@ -9,7 +9,7 @@ import WatchKit
 #endif
 
 class SystemCapabilities {
-    #if os(iOS)
+    #if os(iOS) || os(visionOS)
     static var backgroundNotification: Notification.Name? { UIApplication.didEnterBackgroundNotification }
     static var foregroundNotification: Notification.Name? { UIApplication.willEnterForegroundNotification }
     static var systemName: String { UIDevice.current.systemName }
